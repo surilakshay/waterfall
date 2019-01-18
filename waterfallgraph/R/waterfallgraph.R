@@ -13,7 +13,9 @@
 #   Check Package:             'Ctrl + Shift + E'
 #   Test Package:              'Ctrl + Shift + T'
 
-waterfall_graph<-function(user_data){
+waterfall_graph<-function(Metric,spend1,spend2){
+  user_data<-cbind(Metric,spend1,spend2)
+  colnames(user_data)<-c("Metric","Spend","opt_spend")
   data_waterfall<-user_data
   Metric<-unique(as.character(data_waterfall$Metric))
   data_waterfall$spend_diff<- round(data_waterfall$opt_spend-data_waterfall$Spend)
